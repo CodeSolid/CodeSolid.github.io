@@ -4,4 +4,4 @@ Content in Jupyter Book
 There are many ways to write content in Jupyter Book. This short section
 covers a few tips for how to do so.
 
-First, we force a rebuild.  A lot.
+First, we force a rebuild. A lot of times.
