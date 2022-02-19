@@ -1,5 +1,5 @@
 name: deploy-book
-description: Deploys the book
+
 # Only run this when the master branch changes
 on:
   push:
