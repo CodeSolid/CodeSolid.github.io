@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeSolid: Python In Practice &#8212; Python In Practice</title>
+    <title>Solutions to Exercises &#8212; Python In Practice</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,6 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NumPy Exercises Solutions" href="solutions/NumPyExercises.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -93,11 +95,11 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   CodeSolid Python Practice Exercises
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
    Markdown Files
@@ -107,6 +109,23 @@
   <a class="reference internal" href="notebooks.html">
    Content with notebooks
   </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Solutions to Exercises
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="solutions/NumPyExercises.html">
+     NumPy Exercises Solutions
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -149,7 +168,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/solutions.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -169,7 +188,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2Fsolutions.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -190,41 +209,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usage">
-   Usage
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-the-book">
-     Building the book
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hosting-the-book">
-     Hosting the book
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contributors">
-   Contributors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#credits">
-   Credits
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -232,82 +216,21 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>CodeSolid: Python In Practice</h1>
+                <h1>Solutions to Exercises</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usage">
-   Usage
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-the-book">
-     Building the book
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hosting-the-book">
-     Hosting the book
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contributors">
-   Contributors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#credits">
-   Credits
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="codesolid-python-in-practice">
-<h1>CodeSolid: Python In Practice<a class="headerlink" href="#codesolid-python-in-practice" title="Permalink to this headline">¶</a></h1>
-<p>Python Lessons and Exercises from the <a class="reference external" href="http://CodeSolid.com">CodeSolid.com</a> blog.</p>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="building-the-book">
-<h3>Building the book<a class="headerlink" href="#building-the-book" title="Permalink to this headline">¶</a></h3>
-<p>If you’d like to develop and/or build the CodeSolid: Python In Practice book, you should:</p>
-<ol class="simple">
-<li><p>Clone this repository</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> (it is recommended you do this within a virtual environment)</p></li>
-<li><p>(Optional) Edit the books source files located in the <code class="docutils literal notranslate"><span class="pre">codesolid:_python_in_practice/</span></code> directory</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">clean</span> <span class="pre">codesolid:_python_in_practice/</span></code> to remove any existing builds</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">codesolid:_python_in_practice/</span></code></p></li>
-</ol>
-<p>A fully-rendered HTML version of the book will be built in <code class="docutils literal notranslate"><span class="pre">codesolid:_python_in_practice/_build/html/</span></code>.</p>
-</div>
-<div class="section" id="hosting-the-book">
-<h3>Hosting the book<a class="headerlink" href="#hosting-the-book" title="Permalink to this headline">¶</a></h3>
-<p>Please see the <a class="reference external" href="https://jupyterbook.org/publish/web.html">Jupyter Book documentation</a> to discover options for deploying a book online using services such as GitHub, GitLab, or Netlify.</p>
-<p>For GitHub and GitLab deployment specifically, the <a class="reference external" href="https://github.com/executablebooks/cookiecutter-jupyter-book">cookiecutter-jupyter-book</a> includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose <code class="docutils literal notranslate"><span class="pre">github</span></code> for the <code class="docutils literal notranslate"><span class="pre">include_ci</span></code> cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch.</p>
-</div>
-</div>
-<div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
-<p>We welcome and recognize all contributions. You can see a list of current contributors in the <a class="reference external" href="https://github.com/johnlockwood/codesolid:_python_in_practice/graphs/contributors">contributors tab</a>.</p>
-</div>
-<div class="section" id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
-<p>This project is created using the excellent open source <a class="reference external" href="https://jupyterbook.org/">Jupyter Book project</a> and the <a class="reference external" href="https://github.com/executablebooks/cookiecutter-jupyter-book">executablebooks/cookiecutter-jupyter-book template</a>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="solutions-to-exercises">
+<h1>Solutions to Exercises<a class="headerlink" href="#solutions-to-exercises" title="Permalink to this headline">¶</a></h1>
+<p>This will be where the solutions to exercises live.  If ever the requirements get fixed.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -335,7 +258,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Content with notebooks</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="solutions/NumPyExercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">NumPy Exercises Solutions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
