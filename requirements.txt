@@ -1,4 +1,4 @@
-jupyterbook
+jupyter-book
 jupyterlab
 seaborn
 pandas
