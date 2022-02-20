@@ -7,6 +7,6 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: solutions
-  sections:
-  - file: solutions/NumPyExercises
+#  sections:
+#  - file: solutions/NumPyExercises
 
