@@ -1,6 +1,0 @@
-.venv
-*.code-workspace
-.idea
-*.iml
-*.pyc
-__pycache__
