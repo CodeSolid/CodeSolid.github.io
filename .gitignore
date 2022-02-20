@@ -1,6 +1,10 @@
+# The usual Python suspects
 .venv
-*.code-workspace
-.idea
-*.iml
 *.pyc
 __pycache__
+
+# IDE files
+*.code-workspace
+package.json
+.idea
+*.iml
