@@ -1,6 +1,8 @@
 # CodeSolid: Python In Practice
 
-Python Lessons and Exercises from the CodeSolid.com blog.
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/CodeSolid/CodeSolid.github.io/HEAD)
+
+This repository contains solved exercises and other examples from [CodeSolid.com](https://codesolid.com).
 
 ## Usage
 
