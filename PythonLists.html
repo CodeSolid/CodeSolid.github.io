@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Python In Practice</title>
+    <title>Python Lists &#8212; Python In Practice</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python Exercises" href="exercises.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -92,8 +91,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Introduction
   </a>
  </li>
@@ -174,7 +173,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/PythonLists.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -194,7 +193,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2FPythonLists.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -215,6 +214,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists-can-contain-items-of-any-python-type">
+   Lists can contain items of any Python type
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-lists-are-ordered">
+   Python Lists are Ordered
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -222,23 +239,101 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Python Lists</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists-can-contain-items-of-any-python-type">
+   Lists can contain items of any Python type
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-lists-are-ordered">
+   Python Lists are Ordered
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This interactive Python lesson and practice exercise book is the companion site
-for <a class="reference external" href="https://CodeSolid.com">CodeSolid.com</a>.</p>
-<p>Our current focus is on building out the beginner site.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-lists">
+<h1>Python Lists<a class="headerlink" href="#python-lists" title="Permalink to this headline">¶</a></h1>
+<p>Python lists are one of its most flexible and widely used data types.  The basic idea of a list is straightforward because most people already know how to use a list in real life.  We might have a list of things to do, for example:</p>
+<ul class="simple">
+<li><p>Finish work project</p></li>
+<li><p>Stop at the pharmacy</p></li>
+<li><p>Return parrot to the pet store</p></li>
+</ul>
+<p>Here’s how easy it is to create a Python list with those items:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Finish work project&quot;</span><span class="p">,</span> <span class="s2">&quot;Stop at the pharmacy&quot;</span><span class="p">,</span> <span class="s2">&quot;Return parrot to the pet store&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">todo_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Square brackets tell Python we’re dealing with a list.  It’s also possible to use a list constructor, <code class="docutils literal notranslate"><span class="pre">list()</span></code>, but it’s more common to use square brackets, as we’ve done here.  We can even create an empty list that way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">empty</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In the case of our to-do list example, we wanted to populate the list in advance, so we included three strings.  Inside the list, we separate each list item with a comma.</p>
+<div class="section" id="lists-can-contain-items-of-any-python-type">
+<h2>Lists can contain items of any Python type<a class="headerlink" href="#lists-can-contain-items-of-any-python-type" title="Permalink to this headline">¶</a></h2>
+<p>We can add any Python object to a list – numbers, strings, dates, user-defined classes, dictionaries – even other lists.</p>
+<p>We can even mix and match types in a single list, but just as in real life, this isn’t something you usually want to do unless the items are related somehow.  It would make the meaning of the list unclear, and it would be hard to write valid code to process the list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of numbers</span>
+<span class="n">prime_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="c1"># The three stooges</span>
+<span class="n">stooges</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Moe&#39;</span><span class="p">,</span> <span class="s1">&#39;Larry&#39;</span><span class="p">,</span> <span class="s1">&#39;Curly&#39;</span><span class="p">]</span>
+
+<span class="c1"># A list of lists</span>
+<span class="n">all_my_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">prime_numbers</span><span class="p">,</span> <span class="n">stooges</span><span class="p">]</span>
+
+<span class="c1"># An unclear list of mixed types -- bad idea!</span>
+<span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s2">&quot;Make some soup&quot;</span><span class="p">,</span> <span class="s2">&quot;Yugoslavia&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-lists-are-ordered">
+<h2>Python Lists are Ordered<a class="headerlink" href="#python-lists-are-ordered" title="Permalink to this headline">¶</a></h2>
+<p>The elements in a Python list are ordered with numbers beginning with zero.  Most programming languages start counting from zero rather than one, so this is also how C, Java, JavaScript, and many other languages do it.</p>
+<p>The fact that lists are ordered means we can retrieve or change the items of the list if we know where they appear in the list.</p>
+<p>Let’s look at several things we can do with lists in the following code segment.  We’ll start with a small list of countries to see what we can do.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Kenya&#39;</span><span class="p">]</span>
+
+<span class="c1"># Get the first country into a variable.  </span>
+<span class="c1"># Use the list name, the [] operator, and the zero-based index in the list.</span>
+<span class="n">usa</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">usa</span><span class="p">)</span>
+
+<span class="c1"># Find the zero based-index of Japan</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Japan is at index: &quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+
+<span class="c1"># Find out how many countries are in the list</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s2">&quot;countries in the list.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Change the last item in the list.</span>
+<span class="c1"># Since the list counting is zero-based, the index of the last </span>
+<span class="c1"># item is the list&#39;s length - 1</span>
+<span class="n">countries</span><span class="p">[</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Republic of Kenya&#39;</span>
+
+<span class="c1"># Print the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -267,13 +362,6 @@ for <a class="reference external" href="https://CodeSolid.com">CodeSolid.com</a>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="exercises.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Exercises</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             
         </div>

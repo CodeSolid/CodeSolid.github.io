@@ -94,27 +94,34 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   CodeSolid Python Practice Exercises
+   Introduction
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../exercises.html">
+   Python Exercises
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks.html">
-   Content with notebooks
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/ListExercises.html">
+     Coding Exercises for Python Lists for Beginners
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../solutions.html">
    Solutions to Exercises
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -215,6 +222,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/NumPyExercises.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -419,7 +431,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 2, 3, 3, 1, 2, 4, 4, 4, 5])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 5, 2, 4, 2, 5, 2, 4, 3, 3])
 </pre></div>
 </div>
 </div>
@@ -434,8 +446,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.87182283, 4.57473107, 4.7393353 , 4.7027638 , 4.98938865,
-       5.281437  , 5.31255942, 3.34843932, 5.89022771, 5.65154042])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.47543429, 3.90176124, 4.21962218, 5.29942432, 6.04491873,
+       4.35107303, 6.4283599 , 3.62344981, 4.0073784 , 1.50797964])
 </pre></div>
 </div>
 </div>
@@ -449,8 +461,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.80247633, 0.38411461, 0.0437344 , 0.81232657, 0.33455846,
-       0.16617273, 0.92142117, 0.08539552, 0.92795377, 0.09366048])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.30609709, 0.38750469, 0.10984488, 0.82870019, 0.55706317,
+       0.56328675, 0.2838913 , 0.3670627 , 0.01641399, 0.24597414])
 </pre></div>
 </div>
 </div>
@@ -616,9 +628,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9, 10,  4,  9],
-       [ 2,  4,  8, 10],
-       [ 1,  5,  7,  7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3, 10,  2,  8],
+       [ 1,  7, 10, 10],
+       [ 4,  2,  9,  2]])
 </pre></div>
 </div>
 </div>
@@ -633,9 +645,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 6,  3, 10, 10],
-       [10,  8,  9,  6],
-       [ 4,  1,  6,  8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 4, 6, 6],
+       [3, 9, 6, 7],
+       [5, 1, 4, 1]])
 </pre></div>
 </div>
 </div>
@@ -976,12 +988,15 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the value of one_dim.mean() ?</span>
 
-
+<span class="nb">print</span><span class="p">(</span><span class="n">one_dim</span><span class="p">)</span>
 <span class="n">one_dim</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># The median!</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5]
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
 </pre></div>
 </div>
