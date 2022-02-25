@@ -10,3 +10,5 @@ package.json
 *.iml
 
 yarn-error.log
+
+**/_build
