@@ -5,7 +5,7 @@
 # 
 # These are my solutions that I wrote while working on the article [NumPy Examples: Forty-Five Practice Questions To Make You an Expert](https://codesolid.com/numpy-practice-questions-to-make-you-an-expert/).  I've tried to list the original questions in the comments.
 
-# In[ ]:
+# In[1]:
 
 
 import numpy as np
@@ -15,7 +15,7 @@ import numpy as np
 # 
 # NumPy supports a variety of methods for array creation.
 
-# In[ ]:
+# In[2]:
 
 
 # How would you create a one dimensional NumPy array of the numbers from 10 to 100, counting by 10?
@@ -23,7 +23,7 @@ import numpy as np
 np.arange(10, 110, 10)
 
 
-# In[ ]:
+# In[3]:
 
 
 # How could you do the same thing with a standard Python range and a list?
@@ -31,7 +31,7 @@ np.arange(10, 110, 10)
 np.array([i for i in range(10, 110, 10)])
 
 
-# In[ ]:
+# In[4]:
 
 
 # What does np.array() do (no arguments passed to constructor).  Guess:  exception?
@@ -39,20 +39,20 @@ np.array([i for i in range(10, 110, 10)])
 # np.array()
 
 
-# In[ ]:
+# In[5]:
 
 
 # How might you construct a NumPy array of capital letters (A-Z) 
 
 
-# In[ ]:
+# In[6]:
 
 
 arr = np.array(['fee', 'fi', 'fo', 'fumble-dee-dum'])
 arr.dtype
 
 
-# In[ ]:
+# In[7]:
 
 
 arr = np.array([chr(i) for i in range(ord('A'), ord('Z') + 1)])
@@ -60,7 +60,7 @@ arr.dtype
 arr[0].dtype
 
 
-# In[ ]:
+# In[8]:
 
 
 # How would you create a ten-element array of all zeros?  
@@ -70,7 +70,7 @@ print(np.zeros(10))
 print(np.ones(10))
 
 
-# In[ ]:
+# In[9]:
 
 
 # What is the default data dype for the np.zeros function?
@@ -80,7 +80,7 @@ df = np.zeros(10)
 df.dtype
 
 
-# In[ ]:
+# In[10]:
 
 
 # How can you create an array of 10 random integers?
@@ -88,7 +88,7 @@ df.dtype
 np.random.randint(1, 6, 10)
 
 
-# In[ ]:
+# In[11]:
 
 
 # How can you create a normal distribution of 10 numbers, centered on 5? 
@@ -97,7 +97,7 @@ np.random.randint(1, 6, 10)
 np.random.normal(5, 1, 10)
 
 
-# In[ ]:
+# In[12]:
 
 
 # How can you create an array of 10 random numbers in the range 0 - 1?
@@ -108,83 +108,83 @@ np.random.rand(10)
 # # Multidimensional arrays
 # 
 
-# In[ ]:
+# In[13]:
 
 
 np.zeros((3, 5))
 
 
-# In[ ]:
+# In[14]:
 
 
 myarray = np.arange(1, 13).reshape(3, 4)
 myarray
 
 
-# In[ ]:
+# In[15]:
 
 
 myarray[1,2]
 
 
-# In[ ]:
+# In[16]:
 
 
 myarray.ndim
 
 
-# In[ ]:
+# In[17]:
 
 
 myarray.reshape(2,6)
 
 
-# In[ ]:
+# In[18]:
 
 
 arr
 
 
-# In[ ]:
+# In[19]:
 
 
 myarray.shape
 
 
-# In[ ]:
+# In[20]:
 
 
 myarray.reshape(2,6)
 
 
-# In[ ]:
+# In[21]:
 
 
 myarray
 
 
-# In[ ]:
+# In[22]:
 
 
 x = myarray
 x
 
 
-# In[ ]:
+# In[23]:
 
 
 x[0,0] = 42
 myarray
 
 
-# In[ ]:
+# In[24]:
 
 
 # Create a 3x4 array of random integers between 1 and 10 
 np.random.randint(1, 11, (3,4))
 
 
-# In[ ]:
+# In[25]:
 
 
 # ... or:
@@ -193,13 +193,13 @@ arr = np.random.randint(1,11,12).reshape(3,4)
 arr
 
 
-# In[ ]:
+# In[26]:
 
 
 arr - arr
 
 
-# In[ ]:
+# In[27]:
 
 
 
@@ -213,21 +213,21 @@ x_array = np.array(x_list)
          
 
 
-# In[ ]:
+# In[28]:
 
 
 # My guess is x_array.shape == 3,4,5.  Correct but show tuple brackets would be better
 x_array.shape
 
 
-# In[ ]:
+# In[29]:
 
 
 # What is the value of x_array.ndim?
 x_array.ndim
 
 
-# In[ ]:
+# In[30]:
 
 
 # Given the following:
@@ -241,49 +241,49 @@ arr
 arr.transpose()
 
 
-# In[ ]:
+# In[31]:
 
 
 four_by_five = np.arange(1, 21).reshape(4,5)
 four_by_five
 
 
-# In[ ]:
+# In[32]:
 
 
 # Write an exoression to return the first row
 four_by_five[0]
 
 
-# In[ ]:
+# In[33]:
 
 
 # Write an exoression to return the last row
 four_by_five[-1]
 
 
-# In[ ]:
+# In[34]:
 
 
 # What does four_by_five[2,3] return?  My answer, 14 (scalar)
 four_by_five[2,3]
 
 
-# In[ ]:
+# In[35]:
 
 
 # What does four_by_five[3,2] return?  My answer, 18 (scalar)
 four_by_five[3,2]
 
 
-# In[ ]:
+# In[36]:
 
 
 # How could you return the first column?  It will be a (four-element array ending with 16.) My answer four_by_five[:,0]
 four_by_five[:,0]
 
 
-# In[ ]:
+# In[37]:
 
 
 # What does four_by_five[:, 2:4] return?
@@ -291,7 +291,7 @@ four_by_five[:,0]
 four_by_five[:, 2:4]
 
 
-# In[ ]:
+# In[38]:
 
 
 # Corrected question
@@ -299,21 +299,21 @@ four_by_five[:, 2:4]
 four_by_five[:, 3:5] 
 
 
-# In[ ]:
+# In[39]:
 
 
 # Write an expression to return the last two columns of the middle two rows.
 four_by_five[1:3, 3:] 
 
 
-# In[ ]:
+# In[40]:
 
 
 one_dim = np.arange(1,6)
 one_dim
 
 
-# In[ ]:
+# In[41]:
 
 
 # What would be the result of one_dim * 2
@@ -321,7 +321,7 @@ one_dim
 one_dim * 2
 
 
-# In[ ]:
+# In[42]:
 
 
 # What would be the result of one_dim + np.arange(5, 0, -1)?
@@ -329,7 +329,7 @@ one_dim * 2
 one_dim + np.arange(5, 0, -1)
 
 
-# In[ ]:
+# In[43]:
 
 
 # How many zeros are in the array returned by one_dim - one_dim ?
@@ -337,7 +337,7 @@ one_dim + np.arange(5, 0, -1)
 one_dim - one_dim
 
 
-# In[ ]:
+# In[44]:
 
 
 # What is the result of one_dim > 2 ?
@@ -345,7 +345,7 @@ one_dim - one_dim
 one_dim > 2
 
 
-# In[ ]:
+# In[45]:
 
 
 # For NumPy arrays, logical operations are done with the operators "&" and "|", 
@@ -355,7 +355,7 @@ one_dim > 2
 (one_dim > 4) | (one_dim == 1)
 
 
-# In[ ]:
+# In[46]:
 
 
 # What is the result of -one_dim?
@@ -363,7 +363,7 @@ one_dim > 2
 -one_dim
 
 
-# In[ ]:
+# In[47]:
 
 
 # np.absolute take the absolute value of each element.  Given that, what would the result be of the following expression:
@@ -371,7 +371,7 @@ one_dim > 2
 np.absolute(-(one_dim[3:]))
 
 
-# In[ ]:
+# In[48]:
 
 
 # What is returned by one_dim.sum()?
@@ -379,16 +379,16 @@ np.absolute(-(one_dim[3:]))
 one_dim.sum()
 
 
-# In[ ]:
+# In[49]:
 
 
 # What is the value of one_dim.mean() ?
 
-
+print(one_dim)
 one_dim.mean() # The median!
 
 
-# In[ ]:
+# In[50]:
 
 
 # Given the following...
@@ -397,7 +397,7 @@ arr = np.array([0., .5, 1.0, 1.5, 2.0]) * np.pi
 arr
 
 
-# In[ ]:
+# In[51]:
 
 
 # What are the "approximate" values for 
@@ -406,7 +406,7 @@ arr
 np.around(np.sin(arr), 0)
 
 
-# In[ ]:
+# In[52]:
 
 
 # What are the approximate values for 
@@ -415,7 +415,7 @@ np.around(np.sin(arr), 0)
 np.around(np.cos(arr), 0)
 
 
-# In[ ]:
+# In[53]:
 
 
 # You're asked to save the following two arrays as is to a file, "data.npz". The arrays should be named as they are here in the file. How could you do it?
@@ -425,7 +425,7 @@ languages = np.array([2, 2, 1, 1])
 np.savez("data.npz", people=people, languages=languages)
 
 
-# In[ ]:
+# In[54]:
 
 
 # How could you load the files again into two new variables, people2 and languages2
@@ -437,7 +437,7 @@ print(people2)
 print(languages2)
 
 
-# In[ ]:
+# In[55]:
 
 
 # Given 
@@ -447,7 +447,7 @@ arr = np.arange(1,13).reshape(3,4)
 np.savetxt("myarray.csv", arr, delimiter=",")
 
 
-# In[ ]:
+# In[56]:
 
 
 # How would you load it back into arr2?
@@ -456,7 +456,7 @@ arr2 = np.loadtxt("myarray.csv", delimiter=",")
 arr2
 
 
-# In[ ]:
+# In[57]:
 
 
 # Given 
@@ -465,7 +465,7 @@ lumberjack = np.array("I'm a lumberjack and I'm OK I sleep all night and I work 
 lumberjack
 
 
-# In[ ]:
+# In[58]:
 
 
 # How could you capitalize the first character of each string?
@@ -473,7 +473,7 @@ lumberjack
 np.char.capitalize(lumberjack)
 
 
-# In[ ]:
+# In[59]:
 
 
 # What would you expect the value of np.char.capitalize(lunberjack)[2] to be?
@@ -481,7 +481,7 @@ np.char.capitalize(lumberjack)
 np.char.capitalize(lumberjack)[2]
 
 
-# In[ ]:
+# In[60]:
 
 
 # How could you surround each string with an initial and final asterisk character (*)?  
@@ -489,20 +489,20 @@ np.char.capitalize(lumberjack)[2]
 np.char.add(np.char.add("*", lumberjack), "*")
 
 
-# In[ ]:
+# In[61]:
 
 
 # np.where can be used to make selections.  How can we use this to create a smaller array of those strings that have a length >= 5?
 # My guess np.where(lumberjack, np.length(lumberjack) >= 5)  Way off.
 
 
-# In[ ]:
+# In[62]:
 
 
 np.where(np.char.str_len(lumberjack) >=5)
 
 
-# In[ ]:
+# In[63]:
 
 
 lumberjack[np.where(np.char.str_len(lumberjack) >=5)]

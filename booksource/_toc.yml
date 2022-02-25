@@ -4,8 +4,11 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
+# - file: markdown
+# - file: notebooks
+- file: exercises
+  sections:
+  - file: exercises/ListExercises
 - file: solutions
   sections:
   - file: solutions/NumPyExercises

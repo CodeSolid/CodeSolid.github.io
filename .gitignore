@@ -8,3 +8,5 @@ __pycache__
 package.json
 .idea
 *.iml
+
+yarn-error.log
