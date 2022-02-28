@@ -8,8 +8,9 @@ chapters:
 # - file: notebooks
 - file: exercises
   sections:
-  - exercises/ListExercises
+  - file: exercises/ListExercises
 - file: solutions
   sections:
+  - file: solutions/ListExercises
   - file: solutions/NumPyExercises
 
