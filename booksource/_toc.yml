@@ -6,6 +6,7 @@ root: intro
 chapters:
 # - file: markdown
 # - file: notebooks
+-file: JupyterNotebookStarter
 - file: exercises
   sections:
   - file: exercises/ListExercises
