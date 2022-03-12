@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creating DataFrames and Using Sample Data Sets &#8212; Python In Practice</title>
+    <title>Pandas Exercises &#8212; Python In Practice</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -121,7 +121,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../exercises/PandasExercises.html">
-     Creating DataFrames and Using Sample Data Sets
+     Pandas Exercises
     </a>
    </li>
   </ul>
@@ -148,7 +148,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Creating DataFrames and Using Sample Data Sets
+     Pandas Exercises
     </a>
    </li>
   </ul>
@@ -256,27 +256,27 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-dataframes-and-using-sample-data-sets">
    Creating DataFrames and Using Sample Data Sets
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-from-csv">
    Loading data from CSV
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-operations-on-data">
    Basic Operations on Data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#selecting-rows-columns-and-cells">
    Selecting Rows, Columns, and Cells
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#some-exercises-using-time-series">
    Some Exercises Using Time Series
   </a>
@@ -291,7 +291,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Creating DataFrames and Using Sample Data Sets</h1>
+                <h1>Pandas Exercises</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -301,27 +301,27 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-dataframes-and-using-sample-data-sets">
    Creating DataFrames and Using Sample Data Sets
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-from-csv">
    Loading data from CSV
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-operations-on-data">
    Basic Operations on Data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#selecting-rows-columns-and-cells">
    Selecting Rows, Columns, and Cells
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#some-exercises-using-time-series">
    Some Exercises Using Time Series
   </a>
@@ -335,8 +335,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="creating-dataframes-and-using-sample-data-sets">
-<h1>Creating DataFrames and Using Sample Data Sets<a class="headerlink" href="#creating-dataframes-and-using-sample-data-sets" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas-exercises">
+<h1>Pandas Exercises<a class="headerlink" href="#pandas-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-dataframes-and-using-sample-data-sets">
+<h2>Creating DataFrames and Using Sample Data Sets<a class="headerlink" href="#creating-dataframes-and-using-sample-data-sets" title="Permalink to this headline">¶</a></h2>
 <p>This is the Jupyter Notebook *<em>solution set</em> for the article, <a class="reference external" href="https://codesolid.com/pandas-practice-questions-twenty-one-examples-to-make-you-an-expert/">Pandas Practice Questions – Fifty-Two Examples to Make You an Expert</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,8 +537,8 @@
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="loading-data-from-csv">
-<h1>Loading data from CSV<a class="headerlink" href="#loading-data-from-csv" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="loading-data-from-csv">
+<h2>Loading data from CSV<a class="headerlink" href="#loading-data-from-csv" title="Permalink to this headline">¶</a></h2>
 <p><strong>5</strong>. Zillow home data is available at this URL: <a class="reference external" href="https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv">https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv</a></p>
 <p>Open this file as a DataFrame in Pandas.</p>
 <div class="cell docutils container">
@@ -710,8 +712,8 @@ False
 </div></div></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="basic-operations-on-data">
-<h1>Basic Operations on Data<a class="headerlink" href="#basic-operations-on-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-operations-on-data">
+<h2>Basic Operations on Data<a class="headerlink" href="#basic-operations-on-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>11.</strong> Using Seaborn, get a dataset about penguins into a dataframe named “df_penguins”.  Note that because all of the following questions depend on this example, we’ll provide the solution here so no one gets stuck:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1593,8 +1595,8 @@ Name: flipper_length_mm, dtype: float64
 </div></div></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="selecting-rows-columns-and-cells">
-<h1>Selecting Rows, Columns, and Cells<a class="headerlink" href="#selecting-rows-columns-and-cells" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="selecting-rows-columns-and-cells">
+<h2>Selecting Rows, Columns, and Cells<a class="headerlink" href="#selecting-rows-columns-and-cells" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at some precious stones now, and leave the poor penguins alone for a while.  Let’s look at some precious stones now, and leave the poor penguins alone for a while.</p>
 <p><strong>27.</strong> Load the Seaborn “diamonds” dataset into a Pandas dataframe named diamonds.</p>
 <div class="cell docutils container">
@@ -1819,8 +1821,8 @@ Name: 0, dtype: object
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="some-exercises-using-time-series">
-<h1>Some Exercises Using Time Series<a class="headerlink" href="#some-exercises-using-time-series" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="some-exercises-using-time-series">
+<h2>Some Exercises Using Time Series<a class="headerlink" href="#some-exercises-using-time-series" title="Permalink to this headline">¶</a></h2>
 <p><strong>38.</strong> Load the taxis dataset into a DataFrame, <code class="docutils literal notranslate"><span class="pre">taxis</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2068,7 +2070,7 @@ Name: 0, dtype: object
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pickup_time&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/PandasExercises_99_1.png" src="../_images/PandasExercises_99_1.png" />
+<img alt="../_images/PandasExercises_100_1.png" src="../_images/PandasExercises_100_1.png" />
 </div>
 </div>
 <p><strong>43.</strong> Overall, do riders travel further or less far as the day progresses?</p>
@@ -2165,6 +2167,7 @@ Freq: H, Name: time_interval, dtype: int64
 <p>tip_in_percent and passengers.</p>
 <p><strong>48.</strong> Did our hypothesis that people tip more as the day goes on turn out to be warranted?</p>
 <p>Not based on this dataset, no.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
