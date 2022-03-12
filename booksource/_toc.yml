@@ -10,8 +10,10 @@ chapters:
 - file: exercises
   sections:
   - file: exercises/ListExercises
+  - file: exercises/PandasExercises
 - file: solutions
   sections:
   - file: solutions/ListExercises
   - file: solutions/NumPyExercises
+  - file: solutions/PandasExercises
 
