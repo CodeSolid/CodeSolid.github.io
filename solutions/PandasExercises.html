@@ -1,0 +1,2204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating DataFrames and Using Sample Data Sets &#8212; Python In Practice</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python In Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../JupyterNotebookStarter.html">
+   Jupyter NoteBook Starter
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../exercises.html">
+   Python Exercises
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/ListExercises.html">
+     Python Lists for Beginners
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../solutions.html">
+   Solutions to Exercises
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ListExercises.html">
+     Python Lists for Beginners
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NumPyExercises.html">
+     NumPy Exercises Solutions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/solutions/PandasExercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/CodeSolid/CodeSolid.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2Fsolutions/PandasExercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/PandasExercises.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Creating DataFrames and Using Sample Data Sets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-data-from-csv">
+   Loading data from CSV
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-operations-on-data">
+   Basic Operations on Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-rows-columns-and-cells">
+   Selecting Rows, Columns, and Cells
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-exercises-using-time-series">
+   Some Exercises Using Time Series
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Creating DataFrames and Using Sample Data Sets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Creating DataFrames and Using Sample Data Sets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-data-from-csv">
+   Loading data from CSV
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-operations-on-data">
+   Basic Operations on Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-rows-columns-and-cells">
+   Selecting Rows, Columns, and Cells
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-exercises-using-time-series">
+   Some Exercises Using Time Series
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="creating-dataframes-and-using-sample-data-sets">
+<h1>Creating DataFrames and Using Sample Data Sets<a class="headerlink" href="#creating-dataframes-and-using-sample-data-sets" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1.</strong> Using NumPy, create a Pandas DataFrame with five rows and three columms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>2.</strong> For a Pandas DataFrame created from a NumPy array, what is the default behavior for the labels for the columns?  For the rows?</p>
+<p>Both the “columns” value and the “index” value (for the rows) are set to zero based numeric arrays.</p>
+<p><strong>3.</strong> Create a second DataFrame as above with five rows and three columns, setting the row labels to the names of any five major US cities and the column labels to the first three months of the year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NewYork&quot;</span><span class="p">,</span> <span class="s2">&quot;LosAngeles&quot;</span><span class="p">,</span> <span class="s2">&quot;Atlanta&quot;</span><span class="p">,</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span> <span class="s2">&quot;SanFrancisco&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;March&quot;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NewYork</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>LosAngeles</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Atlanta</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Boston</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>SanFrancisco</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>4.</strong> You recall that the Seaborn package has some data sets built in, but can’t remember how to list and load them. Assuming the functions to do so have “data” in the name, how might you locate them?  You can assume a Jupyter Notebook / IPython environment and explain the process, or write the code to do it in Python.</p>
+<p>Method 1:  In an empty code cell, type sb + tab to bring up a list of names.  Type “data” to filter the names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 2:</span>
+<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">sb</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;data&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;get_data_home&#39;, &#39;get_dataset_names&#39;, &#39;load_dataset&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;anagrams&#39;,
+ &#39;anscombe&#39;,
+ &#39;attention&#39;,
+ &#39;brain_networks&#39;,
+ &#39;car_crashes&#39;,
+ &#39;diamonds&#39;,
+ &#39;dots&#39;,
+ &#39;exercise&#39;,
+ &#39;flights&#39;,
+ &#39;fmri&#39;,
+ &#39;gammas&#39;,
+ &#39;geyser&#39;,
+ &#39;iris&#39;,
+ &#39;mpg&#39;,
+ &#39;penguins&#39;,
+ &#39;planets&#39;,
+ &#39;taxis&#39;,
+ &#39;tips&#39;,
+ &#39;titanic&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="loading-data-from-csv">
+<h1>Loading data from CSV<a class="headerlink" href="#loading-data-from-csv" title="Permalink to this headline">¶</a></h1>
+<p><strong>5</strong>. Zillow home data is available at this URL: <a class="reference external" href="https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv">https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv</a></p>
+<p>Open this file as a DataFrame in Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>6.</strong> Save the DataFrame, df_homes, to a local CSV file, “zillow_home_data.csv”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homes</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../data/zillow_home_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>7.</strong> Load zillow_home_data.csv back into a new Dataframe, df_homes_2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homes_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/zillow_home_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>8.</strong> Compare the dimensions of the two DataFrames, df_homes and df_homes_2.  Are they equal?  If not, how can you fix it?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_homes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_homes_2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_homes</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">df_homes_2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(908, 271)
+(908, 272)
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>To fix the fact that they’re not equal, save file again this time using index=False to avoid saving the index as a CSV column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homes</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../data/zillow_home_data.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_homes_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/zillow_home_data.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_homes</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">df_homes_2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>9.</strong> A remote spreadsheet showing how a snapshot of how traffic increased for a hypothetical website is available here: <a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/raw/main/booksource/data/AnalyticsSnapshot.xlsx">https://github.com/CodeSolid/CodeSolid.github.io/raw/main/booksource/data/AnalyticsSnapshot.xlsx</a>. Load the worksheet page of the spreasheet data labelled “February 2022” as a DataFrame named “feb”.  Note: the leftmost column in the spreadsheet is the index column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/CodeSolid/CodeSolid.github.io/raw/main/booksource/data/AnalyticsSnapshot.xlsx&quot;</span>
+<span class="n">feb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;February 2022&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">feb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>This Month</th>
+      <th>Last Month</th>
+      <th>Month to Month Increase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Users</th>
+      <td>1800.0</td>
+      <td>280.0</td>
+      <td>5.428571</td>
+    </tr>
+    <tr>
+      <th>New Users</th>
+      <td>1700.0</td>
+      <td>298.0</td>
+      <td>4.704698</td>
+    </tr>
+    <tr>
+      <th>Page Views</th>
+      <td>2534.0</td>
+      <td>436.0</td>
+      <td>4.811927</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>10.</strong> The “Month to Month Increase” column is a bit hard to understand, so ignore it for now.  Given the values for “This Month” and “Last Month”, create a new column, “Percentage Increase”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feb</span><span class="p">[</span><span class="s2">&quot;Percentage Increase&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">feb</span><span class="p">[</span><span class="s2">&quot;This Month&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">feb</span><span class="p">[</span><span class="s2">&quot;Last Month&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">feb</span><span class="p">[</span><span class="s2">&quot;Last Month&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">feb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>This Month</th>
+      <th>Last Month</th>
+      <th>Month to Month Increase</th>
+      <th>Percentage Increase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Users</th>
+      <td>1800.0</td>
+      <td>280.0</td>
+      <td>5.428571</td>
+      <td>542.857143</td>
+    </tr>
+    <tr>
+      <th>New Users</th>
+      <td>1700.0</td>
+      <td>298.0</td>
+      <td>4.704698</td>
+      <td>470.469799</td>
+    </tr>
+    <tr>
+      <th>Page Views</th>
+      <td>2534.0</td>
+      <td>436.0</td>
+      <td>4.811927</td>
+      <td>481.192661</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="basic-operations-on-data">
+<h1>Basic Operations on Data<a class="headerlink" href="#basic-operations-on-data" title="Permalink to this headline">¶</a></h1>
+<p><strong>11.</strong> Using Seaborn, get a dataset about penguins into a dataframe named “df_penguins”.  Note that because all of the following questions depend on this example, we’ll provide the solution here so no one gets stuck:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>12.</strong> Write the code to show the the number of rows and columns in df_penguins</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(344, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>13.</strong> How might you show the first few rows of df_penguins?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>14.</strong> How can you return the unique species of penguins from df_penguins?  How many unique species are there?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="o">=</span> <span class="n">df_penguins</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">species</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">unique</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">nrows</span> <span class="o">=</span> <span class="n">unique</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">nrows</span><span class="si">}</span><span class="s2"> unique species, </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         Adelie
+152    Chinstrap
+220       Gentoo
+Name: species, dtype: object
+There are 3 unique species, [&#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Gentoo&#39;].
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>15.</strong> What function can we use to drop the rows that have missing data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.3</td>
+      <td>20.6</td>
+      <td>190.0</td>
+      <td>3650.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>338</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>47.2</td>
+      <td>13.7</td>
+      <td>214.0</td>
+      <td>4925.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.8</td>
+      <td>14.3</td>
+      <td>215.0</td>
+      <td>4850.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.4</td>
+      <td>15.7</td>
+      <td>222.0</td>
+      <td>5750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>45.2</td>
+      <td>14.8</td>
+      <td>212.0</td>
+      <td>5200.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>49.9</td>
+      <td>16.1</td>
+      <td>213.0</td>
+      <td>5400.0</td>
+      <td>Male</td>
+    </tr>
+  </tbody>
+</table>
+<p>333 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p><strong>16.</strong> By default, will this modify df_penguins or will it return a copy?</p>
+<p>It will return a copy.</p>
+<p><strong>17.</strong> How can we override the default?</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">df_penguins.dropna(inplace=True)</span></code></p>
+<p><strong>18.</strong> Create a new DataFrame, df_penguins_full, with the missing data deleted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins_full</span> <span class="o">=</span> <span class="n">df_penguins</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expoloratory only</span>
+<span class="n">df_penguins_full</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;species&#39;, &#39;island&#39;, &#39;bill_length_mm&#39;, &#39;bill_depth_mm&#39;,
+       &#39;flipper_length_mm&#39;, &#39;body_mass_g&#39;, &#39;sex&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>19.</strong> What is the average bill length of a penguin, in millimeters, in this (df_full) data set?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43.99279279279279
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>20.</strong> Which of the following is most strongly correlated with bill length?  a) Body mass?  b) Flipper length?  c) Bill depth?  Show how you arrived at the answer.</p>
+<p>The answer is b) Flipper length.  See below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df_penguins_full</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.589451110176949
+0.6530956386670855
+-0.22862563591302923
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>21.</strong> How could you show the median flipper length, grouped by species?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins_full</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species
+Adelie       190.102740
+Chinstrap    195.823529
+Gentoo       217.235294
+Name: flipper_length_mm, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>22.</strong> Which species has the longest flippers?</p>
+<p>Gentoo</p>
+<p><strong>23.</strong> Which two species have the most similar mean weight?  Show how you arrived at the answer.</p>
+<p>Adelie and Chinstrap</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins_full</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>38.823973</td>
+      <td>18.347260</td>
+      <td>190.102740</td>
+      <td>3706.164384</td>
+    </tr>
+    <tr>
+      <th>Chinstrap</th>
+      <td>48.833824</td>
+      <td>18.420588</td>
+      <td>195.823529</td>
+      <td>3733.088235</td>
+    </tr>
+    <tr>
+      <th>Gentoo</th>
+      <td>47.568067</td>
+      <td>14.996639</td>
+      <td>217.235294</td>
+      <td>5092.436975</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>24.</strong> How could you sort the rows by bill length?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>142</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>32.1</td>
+      <td>15.5</td>
+      <td>188.0</td>
+      <td>3050.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>33.1</td>
+      <td>16.1</td>
+      <td>178.0</td>
+      <td>2900.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>33.5</td>
+      <td>19.0</td>
+      <td>190.0</td>
+      <td>3600.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>34.0</td>
+      <td>17.1</td>
+      <td>185.0</td>
+      <td>3400.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>34.1</td>
+      <td>18.1</td>
+      <td>193.0</td>
+      <td>3475.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>55.9</td>
+      <td>17.0</td>
+      <td>228.0</td>
+      <td>5600.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>58.0</td>
+      <td>17.8</td>
+      <td>181.0</td>
+      <td>3700.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>59.6</td>
+      <td>17.0</td>
+      <td>230.0</td>
+      <td>6050.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p><strong>25.</strong> How could you run the same sort in descending order?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>253</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>59.6</td>
+      <td>17.0</td>
+      <td>230.0</td>
+      <td>6050.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>58.0</td>
+      <td>17.8</td>
+      <td>181.0</td>
+      <td>3700.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>55.9</td>
+      <td>17.0</td>
+      <td>228.0</td>
+      <td>5600.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>55.8</td>
+      <td>19.8</td>
+      <td>207.0</td>
+      <td>4000.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>335</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>55.1</td>
+      <td>16.0</td>
+      <td>230.0</td>
+      <td>5850.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>33.5</td>
+      <td>19.0</td>
+      <td>190.0</td>
+      <td>3600.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>33.1</td>
+      <td>16.1</td>
+      <td>178.0</td>
+      <td>2900.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>32.1</td>
+      <td>15.5</td>
+      <td>188.0</td>
+      <td>3050.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p><strong>26.</strong> How could you sort by species first, then by body mass?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_penguins</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;body_mass_g&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>58</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.5</td>
+      <td>16.6</td>
+      <td>181.0</td>
+      <td>2850.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.4</td>
+      <td>17.1</td>
+      <td>184.0</td>
+      <td>2850.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>34.5</td>
+      <td>18.1</td>
+      <td>187.0</td>
+      <td>2900.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>33.1</td>
+      <td>16.1</td>
+      <td>178.0</td>
+      <td>2900.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>38.6</td>
+      <td>17.0</td>
+      <td>188.0</td>
+      <td>2900.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>51.1</td>
+      <td>16.3</td>
+      <td>220.0</td>
+      <td>6000.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>48.8</td>
+      <td>16.2</td>
+      <td>222.0</td>
+      <td>6000.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>59.6</td>
+      <td>17.0</td>
+      <td>230.0</td>
+      <td>6050.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>49.2</td>
+      <td>15.2</td>
+      <td>221.0</td>
+      <td>6300.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="selecting-rows-columns-and-cells">
+<h1>Selecting Rows, Columns, and Cells<a class="headerlink" href="#selecting-rows-columns-and-cells" title="Permalink to this headline">¶</a></h1>
+<p>Let’s look at some precious stones now, and leave the poor penguins alone for a while.  Let’s look at some precious stones now, and leave the poor penguins alone for a while.</p>
+<p><strong>27.</strong> Load the Seaborn “diamonds” dataset into a Pandas dataframe named diamonds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>28.</strong> Display the columns that are available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;carat&#39;, &#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;depth&#39;, &#39;table&#39;, &#39;price&#39;, &#39;x&#39;, &#39;y&#39;,
+       &#39;z&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>29.</strong> If you select a single column from the diamonds DataFrame, what will be the type of the return value?</p>
+<p>A Pandas Series.</p>
+<p><strong>30.</strong> Select the ‘table’ column and show its type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>31.</strong> Select the first ten rows of the price and carat columns ten rows of the diamonds DataFrame into a variable called subset, and display them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">]]</span>
+<span class="n">subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>carat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>326</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>326</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>327</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>334</td>
+      <td>0.29</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>335</td>
+      <td>0.31</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>336</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>336</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>337</td>
+      <td>0.26</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>337</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>338</td>
+      <td>0.23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>32.</strong> For a given column, show the code to display the datatype of the <em>values</em> in the column?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>33.</strong> Select the first row of the diamonds DataFrame into a variable called row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>34.</strong> What would you expect the data type of the row to be?  Display it.</p>
+<p>A Pandas series</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>35.</strong> Can you discover the names of the columns using only the row returned in #33?  Why or why not?Can you discover the names of the columns using only the row returned in #33?  Why or why not?</p>
+<p>Yes, because a row series should have the columns as the index (See below):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;carat&#39;, &#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;depth&#39;, &#39;table&#39;, &#39;price&#39;, &#39;x&#39;, &#39;y&#39;,
+       &#39;z&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>36.</strong> Select the row with the highest priced diamond.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carat         2.29
+cut        Premium
+color            I
+clarity        VS2
+depth         60.8
+table         60.0
+price        18823
+x              8.5
+y             8.47
+z             5.16
+Name: 27749, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>37.</strong> Select the row with the lowest priced diamond.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">(),</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carat       0.23
+cut        Ideal
+color          E
+clarity      SI2
+depth       61.5
+table       55.0
+price        326
+x           3.95
+y           3.98
+z           2.43
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="some-exercises-using-time-series">
+<h1>Some Exercises Using Time Series<a class="headerlink" href="#some-exercises-using-time-series" title="Permalink to this headline">¶</a></h1>
+<p><strong>38.</strong> Load the taxis dataset into a DataFrame, <code class="docutils literal notranslate"><span class="pre">taxis</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;taxis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>39.</strong> The ‘pickup’ column contains the date and time the customer picked up, but it’s a string.  Add a column to the DataFrame, ‘pickup_time’, containing the value in ‘pickup’ as a DateTime.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span><span class="p">[</span><span class="s1">&#39;pickup_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">taxis</span><span class="p">[</span><span class="s1">&#39;pickup&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>40.</strong> We have a hypothesis that as the day goes on, the tips get higher.  We’ll need to wrangle the data a bit before testing this, however.  First, now that we have a datetime column, pickup_time, create a subset of it to create a new DataFrame, taxis_one_day. This new DataFrame should have values between ‘2019-03-23 00:06:00’ (inclusive) and ‘2019-03-24 00:00:00’ (exlusive).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">taxis</span><span class="p">[</span><span class="s1">&#39;pickup_time&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s1">&#39;2019-03-23 06:00:00&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">taxis</span><span class="p">[</span><span class="s1">&#39;pickup_time&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s1">&#39;2019-03-24 00:00:00&#39;</span><span class="p">)</span>
+<span class="n">taxis_one_day</span> <span class="o">=</span> <span class="n">taxis</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>41.</strong> We now have a range from morning until midnight, but we to take the mean of the numeric columns, grouped at one hour intervals.  Save the result as df_means, and display it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_means</span> <span class="o">=</span> <span class="n">taxis_one_day</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;pickup_time&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1h&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">taxis_means</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+    </tr>
+    <tr>
+      <th>pickup_time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-03-23 06:00:00</th>
+      <td>1.000000</td>
+      <td>0.400000</td>
+      <td>21.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>23.133333</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 07:00:00</th>
+      <td>2.333333</td>
+      <td>0.980000</td>
+      <td>5.250000</td>
+      <td>1.165000</td>
+      <td>0.000000</td>
+      <td>9.298333</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 08:00:00</th>
+      <td>1.000000</td>
+      <td>0.020000</td>
+      <td>2.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>3.300000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 09:00:00</th>
+      <td>1.500000</td>
+      <td>1.352000</td>
+      <td>7.400000</td>
+      <td>1.674000</td>
+      <td>0.000000</td>
+      <td>12.124000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 10:00:00</th>
+      <td>1.000000</td>
+      <td>1.760000</td>
+      <td>8.750000</td>
+      <td>0.727500</td>
+      <td>0.000000</td>
+      <td>12.152500</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 11:00:00</th>
+      <td>1.909091</td>
+      <td>2.070000</td>
+      <td>11.090909</td>
+      <td>0.803636</td>
+      <td>0.000000</td>
+      <td>14.667273</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 12:00:00</th>
+      <td>2.000000</td>
+      <td>2.267143</td>
+      <td>10.260000</td>
+      <td>0.645714</td>
+      <td>0.000000</td>
+      <td>13.420000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 13:00:00</th>
+      <td>2.500000</td>
+      <td>1.167000</td>
+      <td>7.550000</td>
+      <td>2.074000</td>
+      <td>0.000000</td>
+      <td>12.344000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 14:00:00</th>
+      <td>2.470588</td>
+      <td>4.752941</td>
+      <td>18.330000</td>
+      <td>1.945294</td>
+      <td>1.003529</td>
+      <td>24.267059</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 15:00:00</th>
+      <td>1.000000</td>
+      <td>6.557143</td>
+      <td>22.214286</td>
+      <td>3.210000</td>
+      <td>1.645714</td>
+      <td>30.370000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 16:00:00</th>
+      <td>2.000000</td>
+      <td>2.194545</td>
+      <td>10.454545</td>
+      <td>1.109091</td>
+      <td>0.000000</td>
+      <td>14.431818</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 17:00:00</th>
+      <td>1.090909</td>
+      <td>1.913636</td>
+      <td>14.818182</td>
+      <td>2.688182</td>
+      <td>0.523636</td>
+      <td>20.739091</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 18:00:00</th>
+      <td>1.571429</td>
+      <td>3.206429</td>
+      <td>12.821429</td>
+      <td>0.844286</td>
+      <td>0.411429</td>
+      <td>16.427143</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 19:00:00</th>
+      <td>1.526316</td>
+      <td>2.097895</td>
+      <td>10.263158</td>
+      <td>1.176316</td>
+      <td>0.000000</td>
+      <td>14.226316</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 20:00:00</th>
+      <td>1.400000</td>
+      <td>2.448000</td>
+      <td>11.100000</td>
+      <td>1.544000</td>
+      <td>0.000000</td>
+      <td>15.944000</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 21:00:00</th>
+      <td>1.000000</td>
+      <td>2.017143</td>
+      <td>10.571429</td>
+      <td>1.420000</td>
+      <td>0.000000</td>
+      <td>15.791429</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 22:00:00</th>
+      <td>1.307692</td>
+      <td>1.881538</td>
+      <td>8.923077</td>
+      <td>1.094615</td>
+      <td>0.000000</td>
+      <td>13.433077</td>
+    </tr>
+    <tr>
+      <th>2019-03-23 23:00:00</th>
+      <td>1.615385</td>
+      <td>3.725385</td>
+      <td>15.115385</td>
+      <td>1.696154</td>
+      <td>0.000000</td>
+      <td>20.034615</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>42.</strong> Create a simple line plot of the value “distance”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pickup_time&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/PandasExercises_98_1.png" src="../_images/PandasExercises_98_1.png" />
+</div>
+</div>
+<p><strong>43.</strong> Overall, do riders travel further or less far as the day progresses?</p>
+<p>They travel further.</p>
+<p><strong>44.</strong> Create a new column in taxis_means, <code class="docutils literal notranslate"><span class="pre">tip_in_percent</span></code>.  The source columns for this should be “fare” and “tip”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;tip_in_percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">taxis_means</span><span class="o">.</span><span class="n">tip</span> <span class="o">/</span> <span class="n">taxis_means</span><span class="o">.</span><span class="n">fare</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">taxis_means</span><span class="o">.</span><span class="n">tip_in_percent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_time
+2019-03-23 06:00:00     0.000000
+2019-03-23 07:00:00    22.190476
+2019-03-23 08:00:00     0.000000
+2019-03-23 09:00:00    22.621622
+2019-03-23 10:00:00     8.314286
+2019-03-23 11:00:00     7.245902
+2019-03-23 12:00:00     6.293512
+2019-03-23 13:00:00    27.470199
+2019-03-23 14:00:00    10.612625
+2019-03-23 15:00:00    14.450161
+2019-03-23 16:00:00    10.608696
+2019-03-23 17:00:00    18.141104
+2019-03-23 18:00:00     6.584958
+2019-03-23 19:00:00    11.461538
+2019-03-23 20:00:00    13.909910
+2019-03-23 21:00:00    13.432432
+2019-03-23 22:00:00    12.267241
+2019-03-23 23:00:00    11.221374
+Freq: H, Name: tip_in_percent, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>45.</strong> Create a new column, time_interval, as a range of integer values beginning with zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;time_interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">taxis_means</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">taxis_means</span><span class="o">.</span><span class="n">time_interval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_time
+2019-03-23 06:00:00     0
+2019-03-23 07:00:00     1
+2019-03-23 08:00:00     2
+2019-03-23 09:00:00     3
+2019-03-23 10:00:00     4
+2019-03-23 11:00:00     5
+2019-03-23 12:00:00     6
+2019-03-23 13:00:00     7
+2019-03-23 14:00:00     8
+2019-03-23 15:00:00     9
+2019-03-23 16:00:00    10
+2019-03-23 17:00:00    11
+2019-03-23 18:00:00    12
+2019-03-23 19:00:00    13
+2019-03-23 20:00:00    14
+2019-03-23 21:00:00    15
+2019-03-23 22:00:00    16
+2019-03-23 23:00:00    17
+Freq: H, Name: time_interval, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display the correlations between the following pairs of values:</p>
+<ol class="simple">
+<li><p>tip_in_percent and distance.</p></li>
+<li><p>tip_in_percent and passengers.</p></li>
+<li><p>tip_in_percent and time_interval.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;tip_in_percent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;tip_in_percent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;tip_in_percent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">taxis_means</span><span class="p">[</span><span class="s1">&#39;time_interval&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05806855805213838
+0.39614201273484234
+0.11904714170082593
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>47.</strong> Admittedly, the size of the data set is fairly small given how we’ve subsetted it.  But based on the values in #45, which of the three pairs show the strongest correlation.</p>
+<p>tip_in_percent and passengers.</p>
+<p><strong>48.</strong> Did our hypothesis that people tip more as the day goes on turn out to be warranted?</p>
+<p>Not based on this dataset, no.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John Lockwood<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
