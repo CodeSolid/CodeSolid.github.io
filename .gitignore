@@ -14,3 +14,5 @@ yarn-error.log
 **/_build
 
 booksource/scratch
+
+.ipynb_checkpoints
