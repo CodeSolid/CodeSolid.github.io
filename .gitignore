@@ -1,5 +1,6 @@
 # The usual Python suspects
 .venv
+venv
 *.pyc
 __pycache__
 
