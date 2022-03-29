@@ -11,6 +11,7 @@ chapters:
   sections:
   - file: exercises/ListExercises
   - file: exercises/PandasExercises
+  - file: exercises/PythonClassesExercises
 - file: solutions
   sections:
   - file: solutions/ListExercises
