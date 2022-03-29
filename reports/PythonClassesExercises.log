@@ -17,7 +17,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Paste and fix the code below:
+# Paste and fix the code here:
 
 # Leave this code
 dog = Pet("Fritz")
@@ -27,7 +27,7 @@ print(dog.move())
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [1][0m, in [0;36m<cell line: 4>[0;34m()[0m
-[1;32m      1[0m [38;5;66;03m# Paste and fix the code below:[39;00m
+[1;32m      1[0m [38;5;66;03m# Paste and fix the code here:[39;00m
 [1;32m      2[0m 
 [1;32m      3[0m [38;5;66;03m# Leave this code[39;00m
 [0;32m----> 4[0m dog [38;5;241m=[39m [43mPet[49m([38;5;124m"[39m[38;5;124mFritz[39m[38;5;124m"[39m)
