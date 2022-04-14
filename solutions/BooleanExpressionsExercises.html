@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python If/Else and Booleans: Examples and Practice Questions &#8212; Python In Practice</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Lists for Beginners" href="ListExercises.html" />
+    <link rel="prev" title="Solutions to Exercises" href="../solutions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python In Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../JupyterNotebookStarter.html">
+   Jupyter NoteBook Starter
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../exercises.html">
+   Python Exercises
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/BooleanExpressionsExercises.html">
+     Python If/Else and Booleans:  Examples and Practice Questions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/ListExercises.html">
+     Python Lists for Beginners
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/PandasExercises.html">
+     Pandas Exercises
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises/PythonClassesExercises.html">
+     Practice Exercises for Python Classes and Objects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../solutions.html">
+   Solutions to Exercises
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Python If/Else and Booleans:  Examples and Practice Questions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ListExercises.html">
+     Python Lists for Beginners
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NumPyExercises.html">
+     NumPy Exercises Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PandasExercises.html">
+     Pandas Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/solutions/BooleanExpressionsExercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/CodeSolid/CodeSolid.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/CodeSolid/CodeSolid.github.io/issues/new?title=Issue%20on%20page%20%2Fsolutions/BooleanExpressionsExercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/BooleanExpressionsExercises.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python If/Else and Booleans:  Examples and Practice Questions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-if-else-and-booleans-examples-and-practice-questions">
+<h1>Python If/Else and Booleans:  Examples and Practice Questions<a class="headerlink" href="#python-if-else-and-booleans-examples-and-practice-questions" title="Permalink to this headline">¶</a></h1>
+<p>These are the solutions for the exercises in <a class="reference external" href="https://codesolid.com/boolean-expressions-python/">Boolean Expressions in Python: Beginner to Expert</a>.  For the runnable exercises without the solutions, <a class="reference internal" href="../exercises/BooleanExpressionsExercises.html"><span class="doc std std-doc">this notebook</span></a>.</p>
+<p>For each of the following questions, give the best answer.  You can assume all code is indented/aligned correctly at the left even if it appears indented slightly in the question text.</p>
+<p><strong>1.</strong> The following Python code contains one or more errors.  How would you correct them?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="o">&gt;</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Add a colon at end of if line and else line</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Open flood gates
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Which of the following is not a boolean expression, and why?</p>
+<ol class="simple">
+<li><p>5 &lt; 2</p></li>
+<li><p>2 &lt; 3</p></li>
+<li><p>3.5 &lt;= 7</p></li>
+<li><p>3 = 7</p></li>
+<li><p>my_variable is not None</p></li>
+</ol>
+<p>Number 4 is not a boolean expression, it should be double equals, not single. Single equals is used for assignment, as in message = “Hello”.  Some others evaluate to False, that’s OK, they’re still valid boolean expressions.  Number 5 might throw an exception if my_variable is not defined, but it’s valid otherwise.</p>
+<p><strong>3.</strong> What does the following print?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noise_level</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">heat_output_percent</span> <span class="o">=</span> <span class="mi">98</span>
+
+<span class="k">if</span> <span class="n">noise_level</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">heat_output_percent</span> <span class="o">&lt;</span> <span class="mi">95</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Call technician&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operation&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Normal operation</p>
+<p><strong>4.</strong> What does the following print:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">to_be</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">to_be</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">to_be</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">to_be</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">to_be</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>False
+True</p>
+<p><strong>5.</strong> What does the following print:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">time_of_day</span> <span class="o">=</span> <span class="s2">&quot;PM&quot;</span>
+<span class="n">heat_ouput_percent</span> <span class="o">=</span> <span class="mi">75</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">water_level</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">time_of_day</span> <span class="o">==</span> <span class="s2">&quot;PM&quot;</span> <span class="ow">or</span> <span class="n">heat_output_percent</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>False</p>
+<p><strong>6.</strong>  The following code works OK, but what if anything is wrong with it?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mf">4.5</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gotcha!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What is the value of obscure after the following code runs?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obscure</span> <span class="o">=</span> <span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>True.  The <code class="docutils literal notranslate"><span class="pre">and</span></code> expression is evaluated first, and evaluates to False. But because the final term of the <code class="docutils literal notranslate"><span class="pre">or</span></code> clauses is True, obscure evaluates to true.</p>
+<p><strong>7.</strong> How might the following code be improved:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rebounds</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">if</span> <span class="n">rebounds</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got some rebounds!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No rebounds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Although this code works, the recommended way to write the if clause in this case would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">rebounds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>8.</strong> In the following code, which expressions are evaluated?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">light_level</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">decibel_level</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">decibel_level</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">light_level</span> <span class="o">==</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>A) decibel_level &gt; 50</p>
+<p>B) light_level == 10</p>
+<p>C) Both A and B</p>
+<p>D) Neither A nor B</p>
+<p>C.  Both are evaluated.  The first comparison evaluates to False, but since it is an “or” statement, evaluation needs to continue to see if the second comparison is true.</p>
+<p><strong>9.</strong> Which of the following statements is false?  There may be more than one.</p>
+<pre>
+A) An else clause must be preceded by an if clause.
+B) An if clause must be followed by an else clause.
+C) Usually, a Boolean expression contains one or more comparison operations.
+D) Boolean expressions can appear outside of an if statement.
+E) Boolean expressions must include a Boolean literal (i.e. one of the the keywords "True" or "False")
+</pre>
+<p>B and E are false.  B is false because if clauses do not need to be followed by either elif or else.  Those clauses are optional.  E is false because Boolean expressions can have a Boolean literal most don’t – they simply contain comparison operations.</p>
+<p><strong>10</strong>. What is the error in the following code?  How would you fix it?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="n">water_level</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;=</span> <span class="mf">4.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Call City Manager&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates and call City Manager&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The code “else if” should be replaced with “elif”, as below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">water_level</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;=</span> <span class="mf">4.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Call City Manager&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates and call City Manager&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Open flood gates and call City Manager
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../solutions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Solutions to Exercises</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ListExercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python Lists for Beginners</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John Lockwood<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
