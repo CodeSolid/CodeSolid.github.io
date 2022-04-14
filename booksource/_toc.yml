@@ -9,12 +9,13 @@ chapters:
 - file: JupyterNotebookStarter
 - file: exercises
   sections:
+  - file: exercises/BooleanExpressionsExercises
   - file: exercises/ListExercises
   - file: exercises/PandasExercises
   - file: exercises/PythonClassesExercises
 - file: solutions
   sections:
+  - file: solutions/BooleanExpressionsExercises
   - file: solutions/ListExercises
   - file: solutions/NumPyExercises
   - file: solutions/PandasExercises
-
