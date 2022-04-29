@@ -18,5 +18,6 @@ chapters:
   sections:
   - file: solutions/BooleanExpressionsExercises
   - file: solutions/ListExercises
+  - file: exercises/DictionaryExercise
   - file: solutions/NumPyExercises
   - file: solutions/PandasExercises
