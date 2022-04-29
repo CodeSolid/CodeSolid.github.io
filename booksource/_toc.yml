@@ -11,6 +11,7 @@ chapters:
   sections:
   - file: exercises/BooleanExpressionsExercises
   - file: exercises/ListExercises
+  - file: exercises/DictionaryExercises
   - file: exercises/PandasExercises
   - file: exercises/PythonClassesExercises
 - file: solutions
