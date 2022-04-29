@@ -300,7 +300,8 @@
               <div>
                 
   <p>These are the exercises for the article <a class="reference external" href="https://codesolid.com/python-dictionaries-with-exercises">Python Dictionaries for Beginners:  A Complete Lesson With Exercises</a></p>
-<p><strong>1.</strong> When should you prefer a dictionary over a list?</p>
+<p><strong>1.</strong> When should you prefer a dictionary over a list?  What advantages does it have?</p>
+<p>(Exact answer varies).  Dictionaries are prefered over lists when you need to quickly look up a value based on a key.  Using a Hashtable-based dictionary provides much faster access for a single element than searching through a list.</p>
 <p><strong>2.</strong> Given the following elements and their symbols, create a dictionary that allows you to look up the symbol given the element name as a key. Assume the element name and symbol names have the cases as shown.  Name the dictionary “elements”.</p>
 <ul class="simple">
 <li><p>Hydrogen H</p></li>
@@ -310,13 +311,46 @@
 <li><p>Silicon Si</p></li>
 <li><p>Helium He</p></li>
 </ul>
-<p><strong>3.</strong> Write a for loop that loops over the elements dictionary you created in exercise 2, above.  Print each item as “Symbol =&gt; Name” on a single line</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;Bismuth&quot;</span><span class="p">:</span> <span class="s2">&quot;Bi&quot;</span><span class="p">,</span> <span class="s2">&quot;Iron&quot;</span><span class="p">:</span> <span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;Carbon&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;Silicon&quot;</span><span class="p">:</span> <span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">:</span> <span class="s2">&quot;He&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Write a for loop that loops over the elements dictionary you created in exercise 2, above.  Print each item as “Symbol =&gt; Name” on a single line,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2"> =&gt; </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H =&gt; Hydrogen
+Bi =&gt; Bismuth
+Fe =&gt; Iron
+C =&gt; Carbon
+Si =&gt; Silicon
+He =&gt; Helium
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>4.</strong> Assuming the elements dictionary is in scope (declared globally for example, or you can add it to the function), write a function that takes an element name and returns the symbol name.  If the element name is not found, return the string “NOT FOUND”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_symbol</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Todo:  Replace None with your code&quot;&quot;&quot;</span>
-    <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">elements</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">&quot;NOT FOUND&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">find_symbol</span><span class="p">(</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">find_symbol</span><span class="p">(</span><span class="s2">&quot;Unobtainium&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H
+NOT FOUND
 </pre></div>
 </div>
 </div>
@@ -327,28 +361,110 @@
 <li><p>Sodium Na</p></li>
 <li><p>Zinc Zn</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="p">[</span><span class="s2">&quot;Oxygen&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;O&quot;</span>
+<span class="n">elements</span><span class="p">[</span><span class="s2">&quot;Sodium&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Na&quot;</span>
+<span class="n">elements</span><span class="p">[</span><span class="s2">&quot;Zinc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Zn&quot;</span>        
+<span class="n">elements</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Hydrogen&#39;: &#39;H&#39;,
+ &#39;Bismuth&#39;: &#39;Bi&#39;,
+ &#39;Iron&#39;: &#39;Fe&#39;,
+ &#39;Carbon&#39;: &#39;C&#39;,
+ &#39;Silicon&#39;: &#39;Si&#39;,
+ &#39;Helium&#39;: &#39;He&#39;,
+ &#39;Oxygen&#39;: &#39;O&#39;,
+ &#39;Sodium&#39;: &#39;Na&#39;,
+ &#39;Zinc&#39;: &#39;Zn&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>6.</strong> The elements table allows you to look up symbols, given an element name.  How could you create a dictionary that would allow you to look up the element name, given a symbol name?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The simplest form is with a dictionary comprehension.</span>
+
+<span class="n">symbols</span> <span class="o">=</span> <span class="p">{</span><span class="n">symbol</span><span class="p">:</span> <span class="n">element</span> <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">symbols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;: &#39;Hydrogen&#39;,
+ &#39;Bi&#39;: &#39;Bismuth&#39;,
+ &#39;Fe&#39;: &#39;Iron&#39;,
+ &#39;C&#39;: &#39;Carbon&#39;,
+ &#39;Si&#39;: &#39;Silicon&#39;,
+ &#39;He&#39;: &#39;Helium&#39;,
+ &#39;O&#39;: &#39;Oxygen&#39;,
+ &#39;Na&#39;: &#39;Sodium&#39;,
+ &#39;Zn&#39;: &#39;Zinc&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>7.</strong> You have a list of sensor IDs and sensor readings, as given in the next cell (the sensor ID comes first in each pair). Also shown is the code for iterating through the list. Write the code to create a dictionary that maps each unique sensor ID to a list of readings related to it, as shown in the following psuedocode:  <code class="docutils literal notranslate"><span class="pre">{sensor_id:</span>&#160; <span class="pre">[reading1,</span> <span class="pre">reading2,</span> <span class="pre">...],</span> <span class="pre">...}</span></code>  Name the dictionary “readings”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reading_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">93.9</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">93.9</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id007&quot;</span><span class="p">,</span> <span class="mf">33.5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id003&quot;</span><span class="p">,</span> <span class="mf">55.1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id007&quot;</span><span class="p">,</span> <span class="mf">22.10</span><span class="p">)]</span>
-<span class="n">reading_list</span>
+<span class="c1"># for reading in reading_list:</span>
+<span class="c1">#     print(f&quot;id = {reading[0]}, reading = {reading[1]}&quot;)</span>
+    
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">readings</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">reading_list</span><span class="p">:</span>
+    <span class="n">readings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">readings</span><span class="p">)</span>
 
 <span class="c1"># Your code to create the readings dictionary here:</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;id001&#39;, 93.9),
- (&#39;id001&#39;, 93.9),
- (&#39;id007&#39;, 33.5),
- (&#39;id001&#39;, 22.0),
- (&#39;id003&#39;, 55.1),
- (&#39;id007&#39;, 22.1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(&lt;class &#39;list&#39;&gt;, {&#39;id001&#39;: [93.9, 93.9, 22.0], &#39;id007&#39;: [33.5, 22.1], &#39;id003&#39;: [55.1]})
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>8.</strong> Write the code to create a dictionary named “squares”.  Each key should be a number between one and ten, and each value should be the square of the number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use a list comprehension to create the squares dictionary:</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
+
+<span class="c1"># Display it.</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">square</span> <span class="ow">in</span> <span class="n">squares</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2"> squared is </span><span class="si">{</span><span class="n">square</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 squared is 1
+2 squared is 4
+3 squared is 9
+4 squared is 16
+5 squared is 25
+6 squared is 36
+7 squared is 49
+8 squared is 64
+9 squared is 81
+10 squared is 100
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>10.</strong> What is wrong with the following code?  You can run it if you need to in order to refresh your memory about this topic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grades</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">95</span><span class="p">]:</span> <span class="s2">&quot;Kalea&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span> <span class="s2">&quot;Antoine&quot;</span><span class="p">}</span>
+<span class="n">grades</span>
+</pre></div>
+</div>
+<p>Lists are not hashable, and therefore cannot be used as dictionary keys.</p>
 
     <script type="text/x-thebe-config">
     {
