@@ -365,76 +365,6 @@
 </div>
 </div>
 <p><strong>1.</strong> Using NumPy, create a Pandas DataFrame with five rows and three columms:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>12</td>
-      <td>13</td>
-      <td>14</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
 <p><strong>2.</strong> For a Pandas DataFrame created from a NumPy array, what is the default behavior for the labels for the columns?  For the rows?</p>
 <p>Both the “columns” value and the “index” value (for the rows) are set to zero based numeric arrays.</p>
 <p><strong>3.</strong> Create a second DataFrame as above with five rows and three columns, setting the row labels to the names of any five major US cities and the column labels to the first three months of the year.</p>
@@ -448,63 +378,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NewYork&quot;</span><span class="p">,</span> <span class="s2">&quot;LosAngeles&quot;</span><span class="p">,</span> <span class="s2">&quot;Atlanta&quot;</span><span class="p">,</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span> <span class="s2">&quot;SanFrancisco&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;March&quot;</span><span class="p">]</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>January</th>
-      <th>February</th>
-      <th>March</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>NewYork</th>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>LosAngeles</th>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>Atlanta</th>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>Boston</th>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>SanFrancisco</th>
-      <td>12</td>
-      <td>13</td>
-      <td>14</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;DataFrame&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>4.</strong> You recall that the Seaborn package has some data sets built in, but can’t remember how to list and load them. Assuming the functions to do so have “data” in the name, how might you locate them?  You can assume a Jupyter Notebook / IPython environment and explain the process, or write the code to do it in Python.</p>
 <p>Method 1:  In an empty code cell, type sb + tab to bring up a list of names.  Type “data” to filter the names.</p>
@@ -589,8 +473,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(908, 272)
-(908, 273)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(908, 271)
+(908, 272)
 False
 </pre></div>
 </div>
@@ -1064,9 +948,9 @@ There are 3 unique species, [&#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Gentoo&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.589451110176949
-0.6530956386670855
--0.22862563591302923
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5894511101769488
+0.6530956386670861
+-0.2286256359130292
 </pre></div>
 </div>
 </div>
@@ -2171,9 +2055,9 @@ Freq: H, Name: time_interval, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05806855805213838
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.058068558052138404
 0.39614201273484234
-0.11904714170082593
+0.11904714170082598
 </pre></div>
 </div>
 </div>
