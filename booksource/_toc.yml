@@ -11,6 +11,7 @@ chapters:
   sections:
   - file: exercises/BooleanExpressionsExercises
   - file: exercises/ListExercises
+  - file: exercises/IndexingSlicingExercises
   - file: exercises/DictionaryExercises
   - file: exercises/PandasExercises
   - file: exercises/PythonClassesExercises
@@ -18,6 +19,7 @@ chapters:
   sections:
   - file: solutions/BooleanExpressionsExercises
   - file: solutions/ListExercises
+  - file: solutions/IndexingSlicingExercises
   - file: exercises/DictionaryExercise
   - file: solutions/NumPyExercises
   - file: solutions/PandasExercises
